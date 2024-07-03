@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="menu" @click="toggleMenu">Menu</div>
-    <div class="menu-content" v-show="menuVisible" id="menuContent">
+    <div class="menu-content" v-show="isMenuVisible">
       <h2>Daftar Isi</h2>
       <a href="#sci-fi">Sci-Fi</a>
       <a href="#action">Action</a>
@@ -21,18 +21,18 @@
 export default {
   data() {
     return {
-      menuVisible: false,
-    }
+      isMenuVisible: false
+    };
   },
   methods: {
     toggleMenu() {
-      this.menuVisible = !this.menuVisible;
+      this.isMenuVisible = !this.isMenuVisible;
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 .menu {
   position: fixed;
   top: 10px;
@@ -48,6 +48,7 @@ export default {
   background-color: #0056b3;
 }
 .menu-content {
+  display: none;
   position: absolute;
   top: 40px;
   left: 10px;
